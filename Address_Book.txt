@@ -118,4 +118,37 @@ mysql> select * from address_book_table;
 +-----------+----------+-------------+---------+-------------+--------+-------------+------------------+
 4 rows in set (0.04 sec)
 
+mysql> select * from address_book_table where city="Wardha";
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+
+| FirstName | LastName | Address   | City   | State       | Zip    | PhoneNumber | Email           |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+
+| Nitin     | Jadhaw   | Ran Nagar | Wardha | Maharashtra | 442269 |    96325896 | nitin@gmail.com |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+
+1 row in set (0.04 sec)
+
+mysql> select * from address_book_table where city="Bihar";
++-----------+----------+------------+-------+-------------+--------+-------------+------------------+
+| FirstName | LastName | Address    | City  | State       | Zip    | PhoneNumber | Email            |
++-----------+----------+------------+-------+-------------+--------+-------------+------------------+
+| Shadab    | Hussain  | LIC Colony | Bihar | Maharashtra | 442365 |    95698566 | shadab@gmail.com |
++-----------+----------+------------+-------+-------------+--------+-------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from address_book_table where city="Solapur";
++-----------+----------+-------------+---------+-------------+--------+-------------+----------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email          |
++-----------+----------+-------------+---------+-------------+--------+-------------+----------------+
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com |
++-----------+----------+-------------+---------+-------------+--------+-------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from address_book_table where city="Nagpur";
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+
+| FirstName | LastName | Address     | City   | State       | Zip    | PhoneNumber | Email           |
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+
+| Pravin    | Rane     | Radha Nagar | Nagpur | Maharashtra | 442899 |    96325896 | nitin@gmail.com |
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+
+1 row in set (0.04 sec)
+
+
 
