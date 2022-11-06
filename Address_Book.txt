@@ -88,5 +88,20 @@ mysql> select * from address_book_table;
 | Shadab    | Hussain  | LIC Colony  | Bihar   | Maharashtra | 442365 |    95698566 | shadab@gmail.com  |
 +-----------+----------+-------------+---------+-------------+--------+-------------+-------------------+
 5 rows in set (0.04 sec)
+mysql> update address_book_table set PhoneNumber=98563215 where FirstName="Sachin";
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+-------------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email             |
++-----------+----------+-------------+---------+-------------+--------+-------------+-------------------+
+| Sachin    | Wankhade | LIG Colony  | Arvi    | Maharashtra | 442201 |    98563215 | sachin1@gmail.com |
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |    96325896 | nitin@gmail.com   |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com   |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com    |
+| Shadab    | Hussain  | LIC Colony  | Bihar   | Maharashtra | 442365 |    95698566 | shadab@gmail.com  |
++-----------+----------+-------------+---------+-------------+--------+-------------+-------------------+
+5 rows in set (0.04 sec)
 
 
