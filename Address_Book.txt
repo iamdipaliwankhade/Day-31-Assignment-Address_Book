@@ -1,0 +1,31 @@
+Welcome to the Address Book Service
+
+
+mysql> use address_book_service;
+Database changed
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| address_book_service |
+| batch2               |
+| bridglabz            |
+| codejavadb           |
+| curd-1               |
+| ems                  |
+| information_schema   |
+| jktechhub            |
+| join                 |
+| logindetails         |
+| mysql                |
+| payroll_service      |
+| performance_schema   |
+| sys                  |
+| test                 |
+| test12               |
+| user                 |
++----------------------+
+17 rows in set (0.13 sec)
+
+mysql> use address_book_service;
+Database changed
