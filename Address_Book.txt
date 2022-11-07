@@ -246,7 +246,14 @@ mysql> select * from address_book_table;
 | Shadab    | Hussain  | LIC Colony  | Bihar   | Maharashtra | 442365 |    95698566 | shadab@gmail.com | NULL         | NULL         |
 +-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
 4 rows in set (0.04 sec)
-s
+
+mysql> select count(*) from address_book_table;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.06 sec)
 
 
 
