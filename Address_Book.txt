@@ -150,5 +150,38 @@ mysql> select * from address_book_table where city="Nagpur";
 +-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+
 1 row in set (0.04 sec)
 
+mysql> select count(*) from address_book_table where city = "Wardha";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select count(*) from address_book_table where city = "Nagpur";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select count(*) from address_book_table where city = "Solapur";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from address_book_table where city = "Bihar";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+
 
 
