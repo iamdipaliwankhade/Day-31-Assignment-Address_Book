@@ -255,5 +255,53 @@ mysql> select count(*) from address_book_table;
 +----------+
 1 row in set (0.06 sec)
 
+mysql> select * from address_book_table where RelationName = "Nitin";
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Nitin        | friendfriend |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Nitin        | profession   |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from address_book_table where RelationName = "Pravin";
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+
+| FirstName | LastName | Address   | City   | State       | Zip    | PhoneNumber | Email           | RelationName | Type   |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+
+| Nitin     | Jadhaw   | Ran Nagar | Wardha | Maharashtra | 442269 |    96325896 | nitin@gmail.com | Pravin       | friend |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from address_book_table where RelationName = "Amar";
+Empty set (0.00 sec)
+
+mysql> update address_book_table set RelationName = 'Brother' where firstName = "Nitin";
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelationName = 'Brother' where firstName = "Amar";
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelationName = 'Friend' where firstName = "Pravin";
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set RelationName = 'Friend' where firstName = "Cousion";
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email            | RelationName | Type         |
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |    96325896 | nitin@gmail.com  | Brother      | friend       |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com  | Friend       | friendfriend |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com   | Brother      | profession   |
+| Shadab    | Hussain  | LIC Colony  | Bihar   | Maharashtra | 442365 |    95698566 | shadab@gmail.com | NULL         | NULL         |
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+4 rows in set (0.00 sec)
+
+
 
 
