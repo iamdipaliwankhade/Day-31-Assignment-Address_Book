@@ -1,0 +1,306 @@
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| address_book         |
+| address_book_service |
+| batch2               |
+| bridglabz            |
+| codejavadb           |
+| curd-1               |
+| ems                  |
+| information_schema   |
+| jktechhub            |
+| join                 |
+| logindetails         |
+| mysql                |
+| payroll_service      |
+| payroll_service_db   |
+| performance_schema   |
+| room_service         |
+| sys                  |
+| test                 |
+| test12               |
+| user                 |
++----------------------+
+20 rows in set (0.20 sec)
+
+mysql> use address_book;
+Database changed
+
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| address_book         |
+| address_book_service |
+| batch2               |
+| bridglabz            |
+| codejavadb           |
+| curd-1               |
+| ems                  |
+| information_schema   |
+| jktechhub            |
+| join                 |
+| logindetails         |
+| mysql                |
+| payroll_service      |
+| payroll_service_db   |
+| performance_schema   |
+| room_service         |
+| sys                  |
+| test                 |
+| test12               |
+| user                 |
++----------------------+
+20 rows in set (0.01 sec)
+
+
+mysql> use address_book_service;
+Database changed
+mysql> show tables;
++--------------------------------+
+| Tables_in_address_book_service |
++--------------------------------+
+| address_book_table             |
++--------------------------------+
+1 row in set (0.04 sec)
+
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email            | RelationName | Type         |
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |    96325896 | nitin@gmail.com  | Brother      | friend       |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com  | Friend       | friendfriend |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com   | Brother      | profession   |
+| Shadab    | Hussain  | LIC Colony  | Bihar   | Maharashtra | 442365 |    95698566 | shadab@gmail.com | NULL         | NULL         |
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+4 rows in set (0.07 sec)
+
+
+mysql> update address_book_table set PhoneNumber = 930737471 where FirstName = "Nitin";
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email            | RelationName | Type         |
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |   930737471 | nitin@gmail.com  | Brother      | friend       |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com  | Friend       | friendfriend |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com   | Brother      | profession   |
+| Shadab    | Hussain  | LIC Colony  | Bihar   | Maharashtra | 442365 |    95698566 | shadab@gmail.com | NULL         | NULL         |
++-----------+----------+-------------+---------+-------------+--------+-------------+------------------+--------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from address_book_table where FirstName = "Shadab";
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend       |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Brother      | profession   |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+3 rows in set (0.04 sec)
+
+mysql> select * from address_book_table where city = "Nagpur";
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+--------------+--------------+
+| FirstName | LastName | Address     | City   | State       | Zip    | PhoneNumber | Email           | RelationName | Type         |
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+--------------+--------------+
+| Pravin    | Rane     | Radha Nagar | Nagpur | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend |
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+--------------+--------------+
+1 row in set (0.04 sec)
+
+mysql> select * from address_book_table where city = "Wardha";
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+
+| FirstName | LastName | Address   | City   | State       | Zip    | PhoneNumber | Email           | RelationName | Type   |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+
+| Nitin     | Jadhaw   | Ran Nagar | Wardha | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+
+1 row in set (0.04 sec)
+
+
+mysql> select count(*) from address_book_table where city ="Wardha";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select count(*) from address_book_table where city ="Nagpur";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select count(*) from address_book_table where city ="Solapur";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> select * from address_book_table order by FirstName asc;
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Brother      | profession   |
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend       |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+
+3 rows in set (0.01 sec)
+
+mysql> alter table address_book_table add BookName varchar(200);
+Query OK, 0 rows affected (0.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table address_book_table add BookSub varchar(200);
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_service;
+ERROR 1146 (42S02): Table 'address_book_service.address_book_service' doesn't exist
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         | BookName | BookSub |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend       | NULL     | NULL    |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend | NULL     | NULL    |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Brother      | profession   | NULL     | NULL    |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+3 rows in set (0.03 sec)
+
+mysql> update address_book_table set BookName = 'Pravin' where FirstName = 'Nitin';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set BookName = 'Nitin' where FirstName = 'Pravin';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set BookName = 'Nitin' where FirstName = 'Amar';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         | BookName | BookSub |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend       | Pravin   | NULL    |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend | Nitin    | NULL    |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Brother      | profession   | Nitin    | NULL    |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select count(*) from address_book_table;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.05 sec)
+
+mysql> select * from address_book_table where RelationName = "Friend";
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| FirstName | LastName | Address     | City   | State       | Zip    | PhoneNumber | Email           | RelationName | Type         | BookName | BookSub |
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| Pravin    | Rane     | Radha Nagar | Nagpur | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend | Nitin    | NULL    |
++-----------+----------+-------------+--------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+1 row in set (0.02 sec)
+mysql> select * from address_book_table where RelationName = "Nitin";
+Empty set (0.01 sec)
+
+mysql> select * from address_book_table where BookName = "Nitin";
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         | BookName | BookSub |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend | Nitin    | NULL    |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Brother      | profession   | Nitin    | NULL    |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from address_book_table where BookName = "Amar";
+Empty set (0.00 sec)
+
+mysql> select * from address_book_table where BookName = "Pravin";
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+----------+---------+
+| FirstName | LastName | Address   | City   | State       | Zip    | PhoneNumber | Email           | RelationName | Type   | BookName | BookSub |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+----------+---------+
+| Nitin     | Jadhaw   | Ran Nagar | Wardha | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend | Pravin   | NULL    |
++-----------+----------+-----------+--------+-------------+--------+-------------+-----------------+--------------+--------+----------+---------+
+1 row in set (0.00 sec)
+
+mysql> update address_book_table set RelationName = 'Friend' where FirstName = 'Pravin';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> update address_book_table set RelationName = 'Brother' where FirstName = 'Amar';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| FirstName | LastName | Address     | City    | State       | Zip    | PhoneNumber | Email           | RelationName | Type         | BookName | BookSub |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+| Nitin     | Jadhaw   | Ran Nagar   | Wardha  | Maharashtra | 442269 |   930737471 | nitin@gmail.com | Brother      | friend       | Pravin   | NULL    |
+| Pravin    | Rane     | Radha Nagar | Nagpur  | Maharashtra | 442899 |    96325896 | nitin@gmail.com | Friend       | friendfriend | Nitin    | NULL    |
+| Amar      | Patil    | Shyam Nagar | Solapur | Maharashtra | 442899 |    96925896 | amar@gmail.com  | Brother      | profession   | Nitin    | NULL    |
++-----------+----------+-------------+---------+-------------+--------+-------------+-----------------+--------------+--------------+----------+---------+
+3 rows in set (0.01 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
